@@ -223,6 +223,7 @@ const App = {
       // Simuler Kouassi Konan Yao (élève Premium BAC C via l'école)
       newUser = {
         role: 'student',
+        id: 'student_1',
         name: 'Kouassi Konan Yao',
         series: 'C',
         average: 14.5,

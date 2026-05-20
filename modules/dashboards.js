@@ -62,7 +62,8 @@ export const DashboardsUI = {
         // Créer un utilisateur temporaire non payant
         const tempUser = {
           role: role,
-          name: role === 'student' ? 'Marc-Antoine Yao' : (role === 'parent' ? 'M. Kouassi Koffi' : 'Lycée Municipal d\'Adjamé'),
+          id: role === 'student' ? 'student_1' : undefined,
+          name: role === 'student' ? 'Kouassi Konan Yao' : (role === 'parent' ? 'M. Kouassi Koffi' : 'Lycée Municipal d\'Adjamé'),
           activeSubscription: false,
           plan: null
         };
