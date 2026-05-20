@@ -13,9 +13,6 @@ const SECTIONS = {
 
 const App = {
   init() {
-    // Initialiser les données de stockage
-    StorageManager.init();
-
     // Configuration des écouteurs globaux
     window.addEventListener('hashchange', () => this.handleRouting());
     
@@ -25,6 +22,17 @@ const App = {
     // Initialiser les fonctionnalités de scroll & reveal
     this.setupScrollFeatures();
     this.setupScrollReveal();
+
+    // Configuration du bouton de réinitialisation globale
+    const resetBtn = document.getElementById('btn-reset-all-data');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        if (confirm("Voulez-vous vraiment effacer toutes les données et recommencer à zéro ?")) {
+          localStorage.clear();
+          window.location.href = '/';
+        }
+      });
+    }
 
     // Lancer la première route
     this.handleRouting();

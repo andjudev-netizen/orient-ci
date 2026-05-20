@@ -6,23 +6,7 @@ const STORAGE_KEYS = {
   SCHOOL_CODES: 'orient_ci_school_codes'
 };
 
-// Utilisateurs de démo par défaut si localStorage est vide
-const DEFAULT_STUDENTS = [];
-
 export const StorageManager = {
-  init() {
-    if (!localStorage.getItem(STORAGE_KEYS.STUDENTS)) {
-      localStorage.setItem(STORAGE_KEYS.STUDENTS, JSON.stringify(DEFAULT_STUDENTS));
-    }
-    if (!localStorage.getItem(STORAGE_KEYS.SCHOOL_CODES)) {
-      const initialCodes = [
-        { code: 'ABIDJAN-INP-2026', used: false, schoolId: 'school_1' },
-        { code: 'BOUAKE-BAC-7789', used: false, schoolId: 'school_1' },
-        { code: 'YAKRO-CPGE-9901', used: false, schoolId: 'school_1' }
-      ];
-      localStorage.setItem(STORAGE_KEYS.SCHOOL_CODES, JSON.stringify(initialCodes));
-    }
-  },
 
   getCurrentUser() {
     const user = localStorage.getItem(STORAGE_KEYS.CURRENT_USER);
