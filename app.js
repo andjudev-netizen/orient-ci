@@ -2,12 +2,14 @@ import { StorageManager } from './modules/storage.js';
 import { SimulatorUI } from './modules/simulator.js';
 import { PaymentManager } from './modules/payment.js';
 import { DashboardsUI } from './modules/dashboards.js';
+import { CodeActivationUI } from './modules/codeActivation.js';
 
 // Configuration du routeur et des sections
 const SECTIONS = {
   accueil: 'view-accueil',
   orienter: 'view-orienter',
   tarifs: 'view-tarifs',
+  code: 'view-code',
   dashboard: 'view-dashboard'
 };
 
@@ -102,6 +104,9 @@ const App = {
     } else if (hash === 'tarifs') {
       // Monter les grilles de tarifs
       PaymentManager.renderTariffs('tarifs-mount-point');
+    } else if (hash === 'code') {
+      // Monter le module d'activation de code
+      CodeActivationUI.render('code-mount-point');
     } else if (hash === 'dashboard') {
       // Monter le dashboard selon le rôle
       DashboardsUI.render('dashboard-mount-point');

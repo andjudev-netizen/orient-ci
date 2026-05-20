@@ -674,17 +674,40 @@ export const DashboardsUI = {
         
         <div class="codes-list-container mt-3">
           ${isPremium ? `
-            <ul class="school-codes-list">
-              ${myCodes.map(c => `
-                <li class="code-item">
-                  <code class="access-code-badge">${c.code}</code>
-                  <span class="code-status-pill ${c.used ? 'used' : 'free'}">
-                    ${c.used ? `Utilisé par ${c.usedBy.split(' ')[0]}` : 'Disponible'}
-                  </span>
-                </li>
-              `).join('')}
-            </ul>
-            <button class="btn btn-primary btn-sm btn-block mt-3" id="btn-generate-new-code">Générer un Code d'Accès</button>
+            <div style="max-height: 200px; overflow-y: auto; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;">
+              <ul class="school-codes-list" style="list-style: none; padding: 0; margin: 0;">
+                ${myCodes.length > 0 ? myCodes.map(c => `
+                  <li class="code-item" style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <code class="access-code-badge" style="font-family: monospace; font-size: 0.85rem; color: var(--color-primary); background: rgba(59,130,246,0.1); padding: 2px 6px; border-radius: 4px;">${c.code}</code>
+                    <span class="code-status-pill ${c.used ? 'used' : 'free'}" style="font-size: 0.75rem; padding: 2px 6px; border-radius: 20px; ${c.used ? 'background: rgba(239,68,68,0.15); color: var(--color-error);' : 'background: rgba(16,185,129,0.15); color: var(--color-success);'}">
+                      ${c.used ? `Utilisé par ${c.usedBy.split(' ')[0]}` : 'Disponible'}
+                    </span>
+                  </li>
+                `).join('') : `
+                  <li style="text-align: center; color: var(--text-muted); font-size: 0.9rem; padding: 15px 0;">Aucun code d'accès disponible.</li>
+                `}
+              </ul>
+            </div>
+            
+            <div class="bulk-generator-form glass-card p-3" style="border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 10px;">
+              <h4 style="font-size: 0.95rem; margin-bottom: 8px; text-align: left;">Générer en masse :</h4>
+              <div class="form-group" style="display: flex; gap: 8px;">
+                <label for="bulk-count-input" class="sr-only">Nombre d'élèves</label>
+                <input 
+                  type="number" 
+                  id="bulk-count-input" 
+                  class="input-text" 
+                  value="10" 
+                  min="1" 
+                  max="200" 
+                  style="width: 70px; text-align: center; font-size: 0.9rem; padding: 6px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 4px;"
+                  aria-label="Nombre de codes à générer"
+                >
+                <button class="btn btn-primary btn-sm" id="btn-generate-bulk-codes" style="flex: 1; padding: 6px; font-size: 0.85rem;">
+                  Générer pour les élèves
+                </button>
+              </div>
+            </div>
           ` : `
             <div class="codes-locked text-center py-3">
               <span class="lock-icon">🔒</span>
@@ -698,11 +721,17 @@ export const DashboardsUI = {
         <button class="btn btn-secondary btn-sm btn-block" id="btn-logout-school">Se déconnecter</button>
       `;
 
-      // Attacher listener génération
-      const genBtn = codesCard.querySelector('#btn-generate-new-code');
-      if (genBtn) {
-        genBtn.addEventListener('click', () => {
-          StorageManager.generateSchoolCode(schoolId);
+      // Attacher listener génération en masse
+      const bulkGenBtn = codesCard.querySelector('#btn-generate-bulk-codes');
+      if (bulkGenBtn) {
+        bulkGenBtn.addEventListener('click', () => {
+          const countInput = codesCard.querySelector('#bulk-count-input');
+          const count = parseInt(countInput.value) || 10;
+          if (count < 1 || count > 200) {
+            alert("Veuillez saisir un nombre de codes compris entre 1 et 200.");
+            return;
+          }
+          StorageManager.generateSchoolCodesBulk(schoolId, count);
           renderCodesList();
         });
       }

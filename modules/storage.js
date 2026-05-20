@@ -74,6 +74,27 @@ export const StorageManager = {
     return newCode;
   },
 
+  generateSchoolCodesBulk(schoolId, count) {
+    const codes = this.getSchoolCodes();
+    const prefix = schoolId.substring(0, 3).toUpperCase();
+    const generated = [];
+    
+    for (let i = 0; i < count; i++) {
+      const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+      const newCode = {
+        code: `ORIENT-ECOLE-${prefix}-${randomSuffix}-${i + 1}`,
+        used: false,
+        schoolId: schoolId,
+        createdAt: new Date().toISOString()
+      };
+      codes.push(newCode);
+      generated.push(newCode);
+    }
+    
+    localStorage.setItem(STORAGE_KEYS.SCHOOL_CODES, JSON.stringify(codes));
+    return generated;
+  },
+
   activateSubscription(role, planType, details = {}) {
     const currentUser = this.getCurrentUser();
     currentUser.role = role;
