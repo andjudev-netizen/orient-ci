@@ -69,9 +69,9 @@ export const DashboardsUI = {
         };
         
         if (role === 'student') {
-          tempUser.grades = { 'Français': 12, 'Philosophie': 10, 'Anglais': 11 };
-          tempUser.series = 'A2';
-          tempUser.interests = ['law_politics'];
+          tempUser.grades = {};
+          tempUser.series = '';
+          tempUser.interests = [];
         } else if (role === 'school') {
           tempUser.schoolId = 'school_demo';
         }

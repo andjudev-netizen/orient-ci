@@ -7,11 +7,7 @@ const STORAGE_KEYS = {
 };
 
 // Utilisateurs de démo par défaut si localStorage est vide
-const DEFAULT_STUDENTS = [
-  { id: 'student_1', name: 'Kouassi Konan Yao', series: 'C', average: 14.5, grades: { 'Mathématiques': 15, 'Physique-Chimie': 16, 'Français': 12, 'Philosophie': 11, 'Anglais': 13, 'SVT': 14 }, interests: ['engineering'], results: [], schoolId: 'school_1', plan: 'school' },
-  { id: 'student_2', name: 'Awa Diarrassouba', series: 'D', average: 12.2, grades: { 'SVT': 14, 'Mathématiques': 11, 'Physique-Chimie': 12, 'Français': 13, 'Philosophie': 12, 'Anglais': 14 }, interests: ['health', 'agronomy'], results: [], schoolId: 'school_1', plan: 'school' },
-  { id: 'student_3', name: 'Marc-Antoine N\'Guessan', series: 'A1', average: 11.8, grades: { 'Français': 14, 'Philosophie': 13, 'Anglais': 15, 'Mathématiques': 9, 'Histoire-Géographie': 12 }, interests: ['law_politics', 'humanities'], results: [], schoolId: 'school_1', plan: 'school' }
-];
+const DEFAULT_STUDENTS = [];
 
 export const StorageManager = {
   init() {
