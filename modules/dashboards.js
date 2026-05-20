@@ -145,9 +145,20 @@ export const DashboardsUI = {
 
       <div class="mt-4">
         <a href="#orienter" class="btn btn-secondary btn-sm">Modifier mes notes / Refaire le test</a>
+        <button class="btn btn-primary btn-sm restart-test-btn">Recommencer le test</button>
       </div>
     `;
     leftCol.appendChild(profileCard);
+        // Attach listener for "Recommencer le test" button
+        setTimeout(() => {
+          const restartBtn = container.querySelector('.restart-test-btn');
+          if (restartBtn) {
+            restartBtn.addEventListener('click', () => {
+              // Navigate to the orientation test view, which resets state
+              window.location.hash = '#orienter';
+            });
+          }
+        }, 50);
 
     // Section 2: Recommandations
     const recsCard = document.createElement('div');

@@ -112,15 +112,35 @@ export const SimulatorUI = {
     }
   },
 
+  // Réinitialisation COMPLÈTE de tout l'état du simulateur
+  resetState() {
+    this.state.step = 1;
+    this.state.student = {
+      id: 'temp_student',
+      name: StorageManager.getCurrentUser().name || 'Élève Visiteur',
+      series: '',
+      average: 10,
+      grades: {},
+      interests: [],
+      results: [],
+      favorites: []
+    };
+  },
+
   init(containerId, onComplete) {
     this.container = document.getElementById(containerId);
     this.onComplete = onComplete;
-    this.state.student.name = StorageManager.getCurrentUser().name || 'Élève Visiteur';
+    this.resetState(); // Toujours partir d'un état propre à l'initialisation
     this.render();
   },
 
   nextStep() {
     if (this.validateStep()) {
+      // After interests are selected (step 3), redirect to student dashboard instead of proceeding to results
+      if (this.state.step === 3) {
+        window.location.hash = '#dashboard';
+        return;
+      }
       this.state.step++;
       this.render();
       this.scrollToTop();
@@ -502,9 +522,7 @@ export const SimulatorUI = {
       `;
       setTimeout(() => {
         document.getElementById('restart-quiz-btn').addEventListener('click', () => {
-          this.state.step = 1;
-          this.state.student.grades = {};
-          this.state.student.interests = [];
+          this.resetState();
           this.render();
           this.scrollToTop();
         });
@@ -675,9 +693,7 @@ export const SimulatorUI = {
     parent.appendChild(restartContainer);
 
     document.getElementById('restart-full-quiz').addEventListener('click', () => {
-      this.state.step = 1;
-      this.state.student.grades = {};
-      this.state.student.interests = [];
+      this.resetState();
       this.render();
       this.scrollToTop();
     });
