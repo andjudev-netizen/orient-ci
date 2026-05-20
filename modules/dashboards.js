@@ -399,6 +399,15 @@ export const DashboardsUI = {
     `;
     leftCol.appendChild(trackingCard);
 
+    // Bouton d'accès à la page de génération de codes parents
+    const codesBtn = document.createElement('button');
+    codesBtn.className = 'btn btn-secondary mt-3';
+    codesBtn.textContent = 'Générer / Gérer les Codes Parents';
+    codesBtn.addEventListener('click', () => {
+      window.location.hash = '#parent-codes';
+    });
+    leftCol.appendChild(codesBtn);
+
     // Module de chat d'orientation
     const chatCard = document.createElement('div');
     chatCard.className = 'dashboard-card glass mt-4';

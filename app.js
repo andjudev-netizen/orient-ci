@@ -3,6 +3,7 @@ import { SimulatorUI } from './modules/simulator.js';
 import { PaymentManager } from './modules/payment.js';
 import { DashboardsUI } from './modules/dashboards.js';
 import { CodeActivationUI } from './modules/codeActivation.js';
+import { ParentCodesUI } from './modules/parentCodes.js';
 
 // Configuration du routeur et des sections
 const SECTIONS = {
@@ -10,7 +11,8 @@ const SECTIONS = {
   orienter: 'view-orienter',
   tarifs: 'view-tarifs',
   code: 'view-code',
-  dashboard: 'view-dashboard'
+  dashboard: 'view-dashboard',
+  'parent-codes': 'view-parent-codes'
 };
 
 const App = {
@@ -110,6 +112,9 @@ const App = {
     } else if (hash === 'dashboard') {
       // Monter le dashboard selon le rôle
       DashboardsUI.render('dashboard-mount-point');
+    } else if (hash === 'parent-codes') {
+      // Monter la page de gestion des codes parents
+      ParentCodesUI.render('parent-codes-mount-point');
     }
   },
 

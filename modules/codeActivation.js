@@ -75,15 +75,26 @@ export const CodeActivationUI = {
         }
 
         // Validate code
-        const result = StorageManager.useSchoolCode(codeVal, nameVal);
+        let result;
+        let activationType = ''; // 'school' or 'parent'
+        
+        if (codeVal.startsWith('ORIENT-PARENT')) {
+          result = StorageManager.useParentCode(codeVal, nameVal);
+          activationType = 'parent';
+        } else {
+          result = StorageManager.useSchoolCode(codeVal, nameVal);
+          activationType = 'school';
+        }
+
         if (result.success) {
           feedback.textContent = '🎉 Félicitations ! Votre code d\'accès a été activé avec succès.';
           feedback.className = 'code-activation-feedback mt-3 text-small text-success font-semibold';
 
           // Update current user's profile and activate subscription
-          StorageManager.activateSubscription('student', 'school', {
-            method: 'Code Établissement',
-            schoolId: result.schoolId
+          StorageManager.activateSubscription('student', activationType === 'parent' ? 'parent' : 'school', {
+            method: activationType === 'parent' ? 'Code Parent' : 'Code Établissement',
+            schoolId: activationType === 'school' ? result.schoolId : undefined,
+            parentId: activationType === 'parent' ? result.parentId : undefined
           });
 
           // Set name of current user to what they entered
@@ -102,8 +113,9 @@ export const CodeActivationUI = {
             results: currentUser.results || [],
             favorites: currentUser.favorites || [],
             activeSubscription: true,
-            plan: 'school',
-            schoolId: result.schoolId
+            plan: activationType === 'parent' ? 'parent' : 'school',
+            schoolId: activationType === 'school' ? result.schoolId : undefined,
+            parentId: activationType === 'parent' ? result.parentId : undefined
           };
           StorageManager.saveStudent(studentProfile);
 
