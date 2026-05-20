@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orient.ci — Orientation Post-BAC Réussie en Côte d'Ivoire</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Facilitez votre orientation universitaire en Côte d'Ivoire après le BACCALAUREAT. Simulateur d'éligibilité pour bacheliers, suivi parent et abonnements écoles.">
+  <meta name="keywords" content="orient.ci, orientation post bac, bac 2026 cote d'ivoire, universites ivoiriennes, inphb, ufhb, esatic, ecole superieure abidjan">
+  <meta name="author" content="Orient.ci Team">
+  <link rel="canonical" href="https://www.orient.ci">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Orient.ci — Orientation Post-BAC Réussie en Côte d'Ivoire">
+  <meta property="og:description" content="Découvrez les universités publiques et grandes écoles adaptées à vos notes de terminale et votre série du BAC.">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Scroll Progress Indicator (Visual AA) -->
+  <div id="scroll-progress" class="scroll-progress-indicator" aria-hidden="true"></div>
+
+  <!-- Skip Link for Screen Readers (Accessibility AA) -->
+  <a href="#main-content" class="nav-link sr-only focus-visible-only">Aller au contenu principal</a>
+
+  <!-- Background Animated Lights (WOW Factor) -->
+  <div class="background-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="main-header">
+    <div class="container nav-container">
+      <a href="#accueil" class="logo" aria-label="Orient.ci - Accueil">
+        <span class="logo-icon" aria-hidden="true">🎓</span>
+        <span>Orient.ci</span>
+      </a>
+
+      <!-- Primary Semantic Navigation -->
+      <nav class="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#accueil" class="nav-link active" id="link-accueil">Accueil</a></li>
+          <li><a href="#orienter" class="nav-link" id="link-orienter">S'Orienter</a></li>
+          <li><a href="#tarifs" class="nav-link" id="link-tarifs">Tarifs</a></li>
+          <li><a href="#dashboard" class="nav-link" id="link-dashboard">Tableau de Bord</a></li>
+        </ul>
+      </nav>
+
+      <!-- Access & Role Toggles (Simulation Panel) -->
+      <div class="nav-actions">
+        <div class="role-selector-wrapper">
+          <label for="header-role-switch" class="sr-only">Changer de rôle pour test</label>
+          <select id="header-role-switch" class="select-input" aria-label="Simuler un rôle d'utilisateur">
+            <option value="anonymous">Visiteur (Démo)</option>
+            <option value="student">Élève (Tél. C)</option>
+            <option value="parent">Parent d'élève</option>
+            <option value="school">Lycée (Admin)</option>
+          </select>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="btn-login-logout">Connexion</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Landmark -->
+  <main id="main-content" tabindex="-1">
+    
+    <!-- SECTION 1: LANDING PAGE (Accueil) -->
+    <section id="view-accueil" class="view-section container">
+      <div class="hero-section">
+        <span class="hero-badge">
+          <span class="pulse-dot"></span> Spécial Terminale & Bacheliers 2026
+        </span>
+        <h1>Votre avenir post-BAC commence <span class="highlight-orange">ici</span></h1>
+        <p class="subtitle max-w-md mx-auto">
+          Préparez votre orientation vers les universités publiques et grandes écoles de Côte d'Ivoire. Analysez votre éligibilité selon vos notes et votre série de BAC.
+        </p>
+        <div class="hero-actions mt-4">
+          <a href="#orienter" class="btn btn-orange">Calculer mon éligibilité</a>
+          <a href="#tarifs" class="btn btn-secondary">Découvrir les forfaits</a>
+        </div>
+      </div>
+
+      <!-- Features Cards Grid -->
+      <div class="features-section mt-5">
+        <h2 class="section-title">Pourquoi choisir Orient.ci ?</h2>
+        <div class="features-grid">
+          
+          <article class="feature-card glass reveal reveal-delay-1">
+            <span class="feature-icon" role="img" aria-label="Boussole">🧭</span>
+            <h3>Conseiller Virtuel IA</h3>
+            <p class="mt-2">Simulez instantanément vos chances d'admission dans des écoles prestigieuses comme l'INP-HB, l'ESATIC ou l'UFHB en fonction de votre bulletin scolaire de terminale.</p>
+          </article>
+
+          <article class="feature-card glass reveal reveal-delay-2">
+            <span class="feature-icon" role="img" aria-label="Famille">👨‍👩‍👦</span>
+            <h3>Suivi Parental Renforcé</h3>
+            <p class="mt-2">Permet aux parents de suivre la maturation du projet professionnel de leurs enfants, de télécharger des rapports PDF détaillés et d'échanger avec des conseillers.</p>
+          </article>
+
+          <article class="feature-card glass reveal reveal-delay-3">
+            <span class="feature-icon" role="img" aria-label="Bâtiment scolaire">🏫</span>
+            <h3>Portail Établissements</h3>
+            <p class="mt-2">Les lycées peuvent souscrire un abonnement global pour offrir des licences Premium à toute leur promotion de terminale, avec statistiques collectives.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SIMULATOR (S'Orienter) -->
+    <section id="view-orienter" class="view-section container d-none">
+      <div class="simulator-container">
+        <h2 class="text-center">Conseiller d'Orientation Post-BAC</h2>
+        <p class="text-center subtitle mb-3">Remplissez ce questionnaire pour obtenir des suggestions d'universités en Côte d'Ivoire.</p>
+        <div id="simulator-mount-point">
+          <!-- Injecté dynamiquement par JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SUBSCRIPTIONS & CHECKOUT (Tarifs) -->
+    <section id="view-tarifs" class="view-section container d-none">
+      <div class="tarifs-section">
+        <h2 class="text-center">Nos Formules d'Abonnement</h2>
+        <p class="text-center subtitle mb-3">Débloquez l'accès complet à vos recommandations et rapports d'orientation.</p>
+        <div id="tarifs-mount-point" class="mt-4">
+          <!-- Injecté dynamiquement par JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: DASHBOARD (Tableau de bord) -->
+    <section id="view-dashboard" class="view-section container d-none">
+      <div id="dashboard-mount-point">
+        <!-- Injecté dynamiquement par JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Landmark -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <h4>🎓 Orient.ci</h4>
+          <p class="mt-2">La plateforme de référence pour l'orientation et l'accompagnement des élèves de terminale vers l'enseignement supérieur en Côte d'Ivoire.</p>
+        </div>
+
+        <div class="footer-links">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#orienter">Simulateur d'orientation</a></li>
+            <li><a href="#tarifs">Abonnements</a></li>
+            <li><a href="#dashboard">Tableau de bord</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h5>Partenaires & Liens</h5>
+          <ul>
+            <li><a href="https://www.inphb.ci" target="_blank" rel="noopener">INP-HB Yamoussoukro</a></li>
+            <li><a href="https://www.esatic.ci" target="_blank" rel="noopener">ESATIC Abidjan</a></li>
+            <li><a href="https://www.uvci.edu.ci" target="_blank" rel="noopener">UVCI (Virtuelle)</a></li>
+            <li><a href="https://www.univ-fhb.edu.ci" target="_blank" rel="noopener">UFHB Cocody</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Orient.ci. Tous droits réservés. Développé pour la jeunesse et l'éducation nationale de Côte d'Ivoire.</p>
+        <p>Norme WCAG 2.1 Level AA &bull; Sécurisé HTTPS</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button with SVG Circular Progress -->
+  <button id="btn-back-to-top" class="btn-back-to-top" aria-label="Retourner en haut de la page" title="Retourner en haut">
+    <svg class="progress-circle" width="48" height="48" viewBox="0 0 48 48">
+      <circle class="progress-circle-bg" cx="24" cy="24" r="20" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="4"></circle>
+      <circle class="progress-circle-bar" cx="24" cy="24" r="20" fill="none" stroke="var(--color-accent)" stroke-width="4" id="scroll-circle-bar" stroke-dasharray="125.66" stroke-dashoffset="125.66"></circle>
+    </svg>
+    <span class="arrow-up" aria-hidden="true">↑</span>
+  </button>
+
+  <!-- Core Javascript Modules Entry -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
