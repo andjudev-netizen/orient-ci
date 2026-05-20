@@ -391,31 +391,9 @@ export const DashboardsUI = {
       <h3>Profils de mes Enfants</h3>
       
       <div class="children-list mt-3">
-        <!-- Enfant 1 (Démo pré-chargé) -->
-        <div class="child-card glass-card p-3">
-          <div class="child-meta">
-            <div>
-              <h4>Yao Kouassi Junior</h4>
-              <p class="text-small text-muted">Élève en Terminale C au Lycée Scientifique de Yamoussoukro</p>
-            </div>
-            <span class="badge badge-blue">BAC C</span>
-          </div>
-          
-          <div class="child-progress mt-3">
-            <div class="progress-bar-container">
-              <span class="progress-bar-label text-small">Progression du projet d'orientation : 85%</span>
-              <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
-            </div>
-          </div>
-
-          <div class="child-results-summary mt-3 text-small">
-            <p><strong>Dernière moyenne saisie :</strong> 14.50/20</p>
-            <p><strong>Orientation recommandée :</strong> Classes Préparatoires (CPGE MPSI) — INP-HB (90% d'adéquation)</p>
-          </div>
-
-          <div class="child-actions mt-3">
-            <button class="btn btn-secondary btn-sm download-report-btn" data-child="Yao Junior">Télécharger le Rapport d'Orientation (PDF)</button>
-          </div>
+        <div class="text-center py-4 glass-card">
+          <p class="text-muted">Vous n'avez pas encore rattaché le profil d'un enfant à votre compte.</p>
+          <button class="btn btn-primary btn-sm mt-2">Lier un compte enfant (Code Parent)</button>
         </div>
       </div>
     `;
@@ -628,63 +606,8 @@ export const DashboardsUI = {
       <h3>Statistiques de la Promotion de Terminale</h3>
       <p class="subtitle">Répartition des choix d'orientation principaux des élèves (180 élèves au total)</p>
       
-      <div class="stats-visualization mt-4">
-        <!-- Graphique SVG personnalisé -->
-        <svg viewBox="0 0 500 200" class="svg-chart" aria-label="Graphique des intentions d'orientation" role="img">
-          <!-- Grille de fond -->
-          <line x1="50" y1="20" x2="480" y2="20" stroke="rgba(255,255,255,0.1)" stroke-dasharray="4"/>
-          <line x1="50" y1="70" x2="480" y2="70" stroke="rgba(255,255,255,0.1)" stroke-dasharray="4"/>
-          <line x1="50" y1="120" x2="480" y2="120" stroke="rgba(255,255,255,0.1)" stroke-dasharray="4"/>
-          <line x1="50" y1="170" x2="480" y2="170" stroke="rgba(255,255,255,0.2)"/>
-          
-          <!-- Barres de données -->
-          <!-- Santé & Médecine (35%) -->
-          <rect x="70" y="70" width="40" height="100" rx="4" fill="url(#blueGrad)" class="chart-bar" />
-          <text x="90" y="60" text-anchor="middle" fill="#fff" class="chart-val-text">35%</text>
-          
-          <!-- Ingénierie & TIC (45%) -->
-          <rect x="150" y="40" width="40" height="130" rx="4" fill="url(#orangeGrad)" class="chart-bar" />
-          <text x="170" y="30" text-anchor="middle" fill="#fff" class="chart-val-text">45%</text>
-          
-          <!-- Commerce & Gestion (12%) -->
-          <rect x="230" y="130" width="40" height="40" rx="4" fill="url(#greenGrad)" class="chart-bar" />
-          <text x="250" y="120" text-anchor="middle" fill="#fff" class="chart-val-text">12%</text>
-          
-          <!-- Droit (8%) -->
-          <rect x="310" y="145" width="40" height="25" rx="4" fill="url(#pinkGrad)" class="chart-bar" />
-          <text x="330" y="135" text-anchor="middle" fill="#fff" class="chart-val-text">8%</text>
-
-          <!-- Lettres et Autres (5%) -->
-          <rect x="390" y="155" width="40" height="15" rx="4" fill="#a0aec0" class="chart-bar" />
-          <text x="410" y="145" text-anchor="middle" fill="#fff" class="chart-val-text">5%</text>
-
-          <!-- Libellés d'axes -->
-          <text x="90" y="190" text-anchor="middle" fill="#a0aec0" class="chart-label-text">Santé</text>
-          <text x="170" y="190" text-anchor="middle" fill="#a0aec0" class="chart-label-text">Ingénierie/TIC</text>
-          <text x="250" y="190" text-anchor="middle" fill="#a0aec0" class="chart-label-text">Commerce</text>
-          <text x="330" y="190" text-anchor="middle" fill="#a0aec0" class="chart-label-text">Droit</text>
-          <text x="410" y="190" text-anchor="middle" fill="#a0aec0" class="chart-label-text">Lettres</text>
-
-          <!-- Dégradés de couleurs -->
-          <defs>
-            <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#4299e1" />
-              <stop offset="100%" stop-color="#2b6cb0" />
-            </linearGradient>
-            <linearGradient id="orangeGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#ed8936" />
-              <stop offset="100%" stop-color="#dd6b20" />
-            </linearGradient>
-            <linearGradient id="greenGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#48bb78" />
-              <stop offset="100%" stop-color="#2f855a" />
-            </linearGradient>
-            <linearGradient id="pinkGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#ed64a6" />
-              <stop offset="100%" stop-color="#b83280" />
-            </linearGradient>
-          </defs>
-        </svg>
+      <div class="stats-visualization mt-4 text-center py-5 glass-card">
+        <p class="text-muted">Les statistiques apparaîtront ici lorsque vos élèves auront commencé à passer le test d'orientation.</p>
       </div>
     `;
     leftCol.appendChild(statsCard);
@@ -698,6 +621,7 @@ export const DashboardsUI = {
       <p class="subtitle">Liste des élèves inscrits via les codes de votre établissement.</p>
       
       <div class="table-responsive mt-3">
+        ${students.length > 0 ? `
         <table class="students-table" aria-label="Liste de suivi des élèves">
           <thead>
             <tr>
@@ -714,12 +638,17 @@ export const DashboardsUI = {
                 <td><strong>${s.name}</strong></td>
                 <td><span class="table-badge badge-blue">${s.series}</span></td>
                 <td><strong>${s.average}/20</strong></td>
-                <td>${s.interests.includes('engineering') ? 'CPGE INP-HB (Génie)' : (s.interests.includes('health') ? 'Médecine (UFHB)' : 'UFR Droit (UFHB)')}</td>
+                <td>${s.interests && s.interests.includes('engineering') ? 'CPGE INP-HB (Génie)' : (s.interests && s.interests.includes('health') ? 'Médecine (UFHB)' : 'UFR Droit (UFHB)')}</td>
                 <td><span class="table-badge badge-green">${s.average >= 12 ? '90%' : '75%'}</span></td>
               </tr>
             `).join('')}
           </tbody>
         </table>
+        ` : `
+        <div class="text-center py-4 glass-card">
+          <p class="text-muted">Aucun élève n'est actuellement inscrit via vos codes d'établissement.</p>
+        </div>
+        `}
       </div>
     `;
     leftCol.appendChild(studentTableCard);
