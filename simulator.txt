@@ -1,4 +1,4 @@
-import { UNIVERSITIES, BAC_SERIES, CAREER_DOMAINS } from '../data.js';
+﻿import { UNIVERSITIES, BAC_SERIES, CAREER_DOMAINS } from '../data.js';
 import { StorageManager } from './storage.js';
 
 export function calculateRecommendations(student) {
@@ -138,27 +138,6 @@ export const SimulatorUI = {
     if (this.validateStep()) {
       // After interests are selected (step 3), redirect to student dashboard instead of proceeding to results
       if (this.state.step === 3) {
-        // Calculer les résultats
-        const recommendations = calculateRecommendations(this.state.student);
-        this.state.student.results = recommendations;
-
-        // Sauvegarder les données mises à jour dans le profil de l'utilisateur
-        const user = StorageManager.getCurrentUser();
-        if (user.role === 'student') {
-          this.state.student.id = user.id || 'temp_student';
-          
-          // Mettre à jour l'utilisateur courant pour que le dashboard affiche les bonnes données
-          user.series = this.state.student.series;
-          user.grades = this.state.student.grades;
-          user.average = this.state.student.average;
-          user.interests = this.state.student.interests;
-          user.results = this.state.student.results;
-          StorageManager.setCurrentUser(user);
-          
-          // Sauvegarder également dans la base de données locale des élèves
-          StorageManager.saveStudent(this.state.student);
-        }
-
         window.location.hash = '#dashboard';
         return;
       }
@@ -721,3 +700,4 @@ export const SimulatorUI = {
   }
 };
 export default SimulatorUI;
+
