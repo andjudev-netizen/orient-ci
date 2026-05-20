@@ -41,7 +41,7 @@ export const PaymentManager = {
       features: [
         'Licence illimitée pour tous les élèves de terminale de l\'école',
         'Tableau de bord d\'administration pour la direction',
-        'Statistiques de choix d'orientation de la promotion (graphiques)',
+        'Statistiques de choix d\'orientation de la promotion (graphiques)',
         'Génération automatique de codes d\'accès individuels pour les élèves',
         'Support technique dédié et webinaires d\'orientation'
       ],
